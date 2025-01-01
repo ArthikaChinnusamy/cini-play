@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cini Play-24 Movie list</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>    /* side*/
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .side-item{
+            color: white;
+            position: fixed;
+            width: 310px;
+            height: 100vh;
+            background-color: rgb(30, 30, 30);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            justify-content: center;
+            font-size: 25px;
+        }
+        .side-item div i{
+            margin-left: 15px;
+        }
+        .side-item a{
+            text-decoration: none;
+            color: white;
+            margin-left: 10px;
+        }
+        .side-item a:hover{
+            color: greenyellow;
+        }
+        .logo{
+            position: absolute;
+            top: 30px;
+            left: 30px;
+        }
+        .side-item div button{
+            background-color:#00e567;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 40px;
+        }
+        
+    </style>
+    <div class="side-item">
+        <div class="logo"><img src="./MEDIA/image/login_image_newwww-removebg-preview.png" width="100px" height="100px"  alt=""></div>
+        <div><i class="fa-solid fa-house"></i><a href="../home.html">Home</a></div>
+        <div><i class="fa-solid fa-music"></i><a href="../music.html">Music Play Lists</a></div>
+        <a href="./movie.html"> <div><button class="watch-movies-btn">Watch Movies</button></div></a>
+    </div>
+
+    <style>
+        .main-content {
+            margin-left: 310px;
+            padding: 40px 30px 0 30px;
+            display: flex;
+            flex-direction: column;
+            min-height: 370px; /* Adjust height for the top bar */
+            /* width: 100%; */
+            box-sizing: border-box;
+            /* overflow-y: auto; Allow vertical scrolling if content overflows */
+            background-color: rgb(30, 30, 30);
+            border: 5px solid rgb(66, 66, 66);
+        }
+        .header-section {
+            display: flex;
+            margin-bottom: 40px;
+        }
+        .header-section img {
+            width: 250px;
+            height: 280px;
+            border-radius: 10px;
+        }
+        .header-content {
+            margin-left: 20px;
+            /* flex: 1; */
+        }
+        .header-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color:#87f86e;
+        }
+        .header-content p {
+            font-size: 22px;
+            line-height: 2;
+            color: white;
+        }
+
+
+
+        .songs-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song-item {
+            display: flex;
+            height: 70px;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            margin-left: 70px;
+            margin-right: 70px;
+            background-color: #383838;
+            border-radius: 10px;
+            justify-content: space-between;
+        }
+
+        /* .song-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            margin-right: 15px;
+        } */
+
+        /* .song-info {
+            flex: 1; 
+        } */
+
+        .song-info h4 {
+            margin: 0;
+            font-size: 20px;
+            color: white;
+        }
+
+        /* .song-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #B3B3B3;
+        } */
+
+        .playback-controls i {
+            /* font-size: 36px; */
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            color: #FFFFFF;
+            /* background-color: #2fe63e; */
+            /* margin-left: 5px; */
+            transition: background-color 0.3s ease; /*----       mm-------*/
+        }
+
+        .playback-controls i.playing {
+            background-color:#1fe500;
+        }
+
+        .playback-controls i.fa-play-circle {
+            font-size: 36px;
+        }
+
+        .playback-controls i.fa-pause-circle {
+            font-size: 36px;
+        }
+    </style>
+    <div class="main-content">
+        <!-- Header Section -->
+        <div class="header-section">
+            <img src="./MEDIA/image/24.webp" alt="Actor/Actress Image">
+            <div class="header-content">
+                <h2>24</h2>
+                <p>24 is a 2016 Indian Tamil-language science fiction action film[5] written and directed by Vikram Kumar. It is produced by Suriya under 2D Entertainment. The film stars Suriya in triple roles, alongside Samantha Ruth Prabhu and Nithya Menen. Saranya Ponvannan, Ajay, Girish Karnad, Mohan Raman, Sudha, Sathyan and Charle appear in the supporting roles. The film follows Sethuraman, a scientist, who invents a time travel watch but Athreya, his twin brother, does everything he can to get hands on that.</p>
+            </div>
+        </div>
+
+        <div class="songs-list">
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>Pullinangal</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio1"></i>
+                </div>
+                <audio id="audio1" src="./MEDIA/audio/Pullinangal-MassTamilan.com.mp3"></audio>
+            </div>
+
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>Raajali-Nee-Gaali</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio2"></i>
+                </div>
+                <audio id="audio2" src="./MEDIA/audio/Raajali-Nee-Gaali-MassTamilan.com.mp3"></audio>
+            </div>
+
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>Aararo</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio3"></i>
+                </div>
+                <audio id="audio3" src="./MEDIA/audio/Aararo.mp3"></audio>
+            </div>
+
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>Kaalam-Yen-Kadhali</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio4"></i>
+                </div>
+                <audio id="audio4" src="./MEDIA/audio/Kaalam-Yen-Kadhali.mp3"></audio>
+            </div>
+
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>My-Twin-Brother</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio5"></i>
+                </div>
+                <audio id="audio5" src="./MEDIA/audio/My-Twin-Brother.mp3"></audio>
+            </div>
+
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>Naan-Un</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio6"></i>
+                </div>
+                <audio id="audio6" src="./MEDIA/audio/Naan-Un.mp3"></audio>
+            </div>
+
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>Punnagaiye</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio7"></i>
+                </div>
+                <audio id="audio7" src="./MEDIA/audio/Punnagaiye.mp3"></audio>
+            </div>
+
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>Alaipayuthey-Kanna</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio8"></i>
+                </div>
+                <audio id="audio8" src="./MEDIA/audio/Alaipayuthey-Kanna.mp3"></audio>
+            </div>
+
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>Endrendrum-Punnagai</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio9"></i>
+                </div>
+                <audio id="audio9" src="./MEDIA/audio/Endrendrum-Punnagai.mp3"></audio>
+            </div>
+
+            <div class="song-item">
+                <div class="song-info">
+                    <h4>Evano-Oruvan-Vasikiran</h4>
+                </div>
+                <div class="playback-controls">
+                    <i class="fa fa-play-circle" data-id="audio10"></i>
+                </div>
+                <audio id="audio10" src="./MEDIA/audio/Evano-Oruvan-Vasikiran.mp3"></audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.playback-controls i').forEach(button => {
+            button.addEventListener('click', function () {
+                const audioId = this.getAttribute('data-id');
+                const audioElement = document.getElementById(audioId);
+                const isPlaying = this.classList.contains('playing');
+
+                if (isPlaying) {
+                    audioElement.pause();
+                    this.classList.remove('playing');
+                    this.classList.add('fa-play-circle');
+                    this.classList.remove('fa-pause-circle');
+                } else {
+                    document.querySelectorAll('audio').forEach(audio => audio.pause());
+                    document.querySelectorAll('.playback-controls i').forEach(btn => {
+                        btn.classList.remove('playing');
+                        btn.classList.add('fa-play-circle');
+                        btn.classList.remove('fa-pause-circle');
+                    });
+                    audioElement.play();
+                    this.classList.add('playing');
+                    this.classList.remove('fa-play-circle');
+                    this.classList.add('fa-pause-circle');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

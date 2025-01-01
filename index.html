@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-CiniPlay</title>
+    <link rel="icon" href="./HTML/MEDIA/image/icon logo new.png">
+    <link rel="stylesheet" href="./CSS/index.css">
+</head>
+<body>
+    <div class="background">
+        <div class="login-page">
+            <img src="./HTML/MEDIA/image/login_image_newwww-removebg-preview.png" alt="logo" >
+            <p>CINI PLAY</p>
+            <div class="container" style="background-color: transparent;">
+                <div class="login" style="height: 500px;">  <!--stotify-->
+                    <h1>Log In</h1><br>
+                    <label for="">Username</label><br>
+                    <input type="text" placeholder="User Name eg:arthi" id="username"><br><br>
+                    <label for="">Password</label><br>
+                    <input type="password" placeholder="Password eg:arthi03" id="password"><br><br>
+                    <p style="color:red; margin-bottom: 10px;" id="invalid"></p> <!--invalid passward or username-->
+                    <button onclick="loginuser()">Log In</button><br><br>  <!--_________log in page-->
+                    <p class="or" style="text-align: center;">OR</p>
+                    <p class="forgotPassword" style="text-align: center; margin-top:15px;"><a href="./HTML/forgotPass.html" style="text-decoration: none;">Forgot Your Password?</a></p>
+                    <p style="margin-top: 15px;">Don't have an account? <a href="./HTML/signUp.html">Sign up for Spotity.</a></p><br>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loginuser(){
+            var  user='arthi'
+            var pass='arthi03'
+
+            var username=document.getElementById('username').value
+            var userpass=document.getElementById('password').value
+
+            if ((username==user)&&(userpass==pass)){
+                window.location.href="./HTML/home.html"
+            }else{
+                document.getElementById('invalid').innerHTML="invalid user name or passward"
+            }
+        }
+    </script>
+</body>
+</html>

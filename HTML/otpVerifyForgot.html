@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP-Verifiaction</title>
+    <link rel="icon" href="./MEDIA/image/icon logo new.png">
+    <link rel="stylesheet" href="../CSS/index.css">
+    <style>
+        #error{
+            color: red;
+            background-color:black;
+            font-size: 23px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./MEDIA/image/logo.jpeg" alt="logo" width="200px">
+    <div class="container">
+        <div class="otp forgot">
+            <h1>OTP Verification</h1>
+            <label for="" style="font-weight: bolder;">Enter the OTP</label><br>
+            <input type="number" placeholder="Enter OTP" style="margin-top: 10px;" id="userinput"><br>
+            <p id="error" style="font-size: 20px;"></p>
+            <button style="margin-top: 15px;" id="verify" onclick="verityotp()">Verify</button>  
+            <button style="margin-top: 25px;" onclick="resend()">Resend OTP</button>
+            <a href="../index.html" style="width: 410px; margin-top: 25px;">Cancel</a>
+        </div>
+    </div>
+    <script>
+        var otpGenderator=Math.floor(Math.random()*999999)
+        alert(otpGenderator)
+
+        function verityotp(){
+            var userotp=document.getElementById('userinput').value
+
+            if (otpGenderator==userotp){
+                window.location.href="../index.html"
+            }
+            else{
+                document.getElementById('error').innerHTML="invalid OTP"
+            }
+        }
+
+        function resend(){
+            window.location.href="./otpVerifyForgot.html"
+        }
+    </script>
+</body>
+</html>

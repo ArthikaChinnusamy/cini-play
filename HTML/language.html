@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function lan(){
+            var choice=document.getElementById("language").value
+            if(choice=='Tamil'){
+                window.location.href="tamil.html"
+            }else if(choice=='Malayalam'){
+                window.location.href="ok.html"
+            }else{
+                window.location.href="raghu.html"
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Change</h1>
+    <select id="language" onchange="lan()">
+        <option>select</option>
+        <option value="Tamil">Tamil</option>
+        <option value="Malayalam">Malayalam</option>
+        <option>Kanadam</option>
+    </select>
+    <button onclick="lan()">
+        next
+    </button>
+</body>
+</html>

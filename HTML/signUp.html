@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up-CiniPlay</title>
+    <link rel="icon" href="./MEDIA/image/icon logo new.png">
+    <link rel="stylesheet" href="../CSS/index.css">
+</head>
+<body>
+    <img src="./MEDIA/image/logo.jpeg" alt="logo" width="200px">
+    <div class="container">
+        <div class="signupbox login" style="height: 660px;">
+            <h1>Sign-In to start Enjoying!</h1>
+            <div class="signUp">   <!--stotify-->
+                <input type="text" placeholder="First Name"><br>
+                <input type="text" placeholder="Last Name"><br>
+                <input type="number" id="phno" placeholder="Mobile Number"><br>
+                <input type="email" id="email" placeholder="Email"><br>
+                <input type="password" id="passcode" placeholder="Passward"><br>
+                <input type="password" id="confirmpass" placeholder="Confirm Passward"><br>
+                <p id="invalid" style="color: red;"></p>
+            </div>
+            <button onclick="sign()">Sign Up</button><br>    
+            <a href="../index.html" class="cancel" style="width: 380px;">Cancel</a>
+            <p>Already have an account? <a href="../index.html">Log In here.</a></p>
+        </div>
+    </div>
+
+    <script>
+        function sign(){
+            // phone validation
+            var phone=document.getElementById('phno').value;
+            var flagphone=false
+            if ((phone>=6000000000)&&(phone<=9999999999)){
+                flagphone=true
+            }
+
+            //email validation
+            var mail=document.getElementById('email').value;
+            var flag=false
+            var flagmail=false
+            var count=0
+
+            for (var i=0; i<mail.length;i++){
+                if ((mail[i]>='a')&&(mail[i]<='z')){
+                    flag=true
+                }
+                if (mail[i]=='@'){
+                    count++
+                }
+            }
+            if ((flag==true)&&(count==1)){
+                flagmail=true
+            }
+
+            //passward validation
+            // var pass=document.getElementById('passcode').value;
+            // var u=0
+            // var l=0
+            // var num=0
+            // var s=0
+            // var flagpass=false
+            
+            // for (var i=0; i<pass.length;i++){
+            //     char=pass[i]
+            //     if ((char>='A') && (char<='Z')){
+            //         u++
+            //     }
+            //     else if ((char>='a') && (char<='z')){
+            //         l++
+            //     }
+            //     else if ((char>='0') && (char<='9')){
+            //         num++
+            //     }
+            //     else{
+            //         s++
+            //     }
+            // }
+            // if ((pass.length>=8) && (pass.length<=16) && (u>=1) && (l>=1) && (num>=1) && (s>=1)){
+            //     flagpass=true
+            // }
+
+              // Password Validation
+            var Password=document.getElementById("passcode").value 
+            var upper=0
+            var lower=0
+            var Num=0
+            var special=0
+            var flagPassword=false
+            for(var i=0;i<Password.length;i++){
+                var char=Password[i]
+                if((char>='A')&&(char<='Z')){
+                    upper++
+                }else if((char>='a')&&(char<='z')){
+                    lower++
+                }else if((char>='0')&&(char<='9')){
+                    Num++
+                }else{
+                    special++
+                }
+            }
+            if((Password.length>=8)&&(Password.length<=16)&&(upper>=1)&&(lower>=1)&&(Num>=1)&&(special>=1)){
+                flagPassword=true
+            }
+
+             // Confirm Password
+            var Confirm=document.getElementById("confirmpass").value 
+            var flagconfirm=false
+            if(Password==Confirm){
+                flagconfirm=true
+            }
+
+
+
+
+            if((flagphone==true)&&(flagmail==true)&&(flagPassword==true) &&(flagconfirm=true)){
+                window.location.href="./otpVerifyForgot.html"
+            }else{
+                document.getElementById('invalid').innerHTML="invalid details"
+            }
+        }
+    </script>
+</body>
+</html>

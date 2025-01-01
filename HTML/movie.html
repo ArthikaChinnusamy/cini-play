@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cini Play-Movie</title>
+    <link rel="icon" href="./MEDIA/image/icon logo new.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+        } 
+    </style>
+    
+
+</head>
+<body>
+
+    <style>   /* poster */
+        .poster{
+            margin-left: 250px;
+            height: 50%;
+            position: relative;
+            user-select: none;
+        }
+        .poster:hover #next{
+            visibility: visible;
+        }
+        .poster:hover #prev{
+            visibility: visible;
+        }
+        .poster-item img{
+            height: 560px;
+            width: 100%;
+        }
+        .poster-item,.hidden{
+            display: none;
+        }
+        .active{
+            display: block;
+            animation: fadeanimation 1s;
+        }
+        @keyframes fadeanimation{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+                transition: opacity linear;
+            }
+        }
+        /* .slider-btn{
+            position: absolute;
+            top: 50%;
+            visibility: hidden;
+        } */
+        #prev{
+            position: absolute;
+            top: 50%;
+            right: 0;
+            visibility: hidden;
+        }
+        #next{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            visibility: hidden;
+        }
+        .poster button{
+            font-size: 30px;
+            background-color:rgba(0,0,0,0.3) ;
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .side-item img{
+            position: absolute;
+            top: 50px; 
+            left: 20px;
+        }
+    </style>
+
+    <style>    /* side*/
+        .side-item{
+            color: white;
+            position: fixed;
+            width: 230px;
+            height: 100vh;
+            background-color: rgb(30, 30, 30);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            justify-content: center;
+            font-size: 23px;
+        }
+        .side-item div i{
+            margin-left: 15px;
+        }
+        .side-item a{
+            text-decoration: none;
+            color: white;
+            margin-left: 10px;
+        }
+        .side-item a:hover{
+            color: greenyellow;
+        }
+        .side-item div button{
+            background-color:#00e567;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+    </style>
+    <div class="side">
+        <div class="side-item">
+            <div class="logo"><img src="./MEDIA/image/login_image_newwww-removebg-preview.png" width="100px" height="100px"  alt=""></div>
+            <div><i class="fa-solid fa-house"></i><a href="../HTML/home.html">Home</a></div>
+            <div><i class="fa-solid fa-video"></i><a href="#newMovies">New Movies</a></div>
+            <div><i class="fa-solid fa-video"></i><a href="#top10">Top 10 in India</a></div>
+            <div><i class="fa-solid fa-video"></i><a href="#action">Action Movies</a></div>
+            <div><i class="fa-solid fa-video"></i><a href="#comedy">Comedy Movies</a></div>
+            <div><i class="fa-solid fa-video"></i><a href="#popular">Popular Movie</a></div>
+            <a href="./music.html"> <div><button class="watch-movies-btn">Watch Music</button></div></a>
+        </div>
+    </div>
+
+    <style>
+        .language-1{
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            width:100% ;
+            /* left: 0; */
+            z-index: 1;
+        }
+        #lan{
+            margin-top: 30px;
+            margin-bottom: 20px;
+            width: 170px;
+            border-radius: 15px;
+            height: 40px;
+            font-size: 15px;
+            border: none;
+            padding: 10px;
+            background-color:rgb(233, 244, 217);
+        }
+        .language-1 input{ 
+            /* margin-top: 30px; */
+            /* margin-bottom: 20px; */
+            width: 300px;
+            padding: 10px; 
+            border: none;
+            outline: 0;
+            font-size: 15px;
+            height: 40px;
+            border-bottom-left-radius: 15px;
+            border-top-left-radius: 15px;
+            background-color:rgb(233, 244, 217);
+            
+        }
+        .language-1 div .button{
+            outline: 0;
+            cursor: pointer;
+            margin-top: 30px;
+            /* margin-bottom: 20px; */
+            /* padding: 10px; */
+            border: none;
+            height: 40px;
+            width: 130px;
+            font-size: 15px;
+            border-bottom-right-radius: 15px;
+            border-top-right-radius: 15px;
+            color: black;
+            background-color:rgb(235, 242, 225);
+            
+        }
+        
+    </style>
+    
+    <div class="poster">       <!---------slider---------->
+        <div class="poster-item active">
+            <img src="./MEDIA/image/amarannn.jpg" alt="">
+        </div>
+        <div class="poster-item">
+            <img src="./MEDIA/image/dada moviee.webp" alt="">
+        </div>
+        <div class="poster-item">
+            <img src="./MEDIA/image/good night movie.webp" alt="">
+        </div>
+        <div class="poster-item">
+            <img src="./MEDIA/image/pramalu movie.jpg" alt="">
+        </div>
+        <div class="poster-item">
+            <img src="./MEDIA/image/vaazhai movie eh.jpg" alt="">
+        </div>
+
+    
+        <button id="next">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="prev">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    
+
+        <div class="language-1">
+            <select id="lan" onchange="language()">
+                <option value="Tamil">Tamil</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Malayalam">Malayalam</option>
+            </select>
+            <div>
+                <input type="text" class="search"><button class="button">Search</button>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        #newMovies,#top10,#action,#comedy,#popular{
+            margin-left: 240px;
+            color: white;
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+        :is(#newMovies,#top10,#action,#comedy,#popular) div{
+            display: flex;
+            justify-content: space-between;
+        }
+        :is(#newMovies,#top10,#action,#comedy,#popular) div  p a{
+            text-decoration: none;
+            color: white;
+            margin-right: 20px;
+            font-size: 20px;
+            visibility: hidden;
+        }
+        :is(#newMovies,#top10,#action,#comedy,#popular) div  p a:hover{
+            color: greenyellow;
+        }
+        :is(#newMovies,#top10,#action,#comedy,#popular):hover div p a {
+            visibility: visible;
+        }
+        :is(#newMovies,#top10,#action,#comedy,#popular) h2 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+        .movie{
+            display: flex;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        .movie a{
+            margin-right: 20px;
+            text-decoration: none;
+        }
+        .movie a:hover{
+            box-shadow: 0 0 15px rgba(176, 177, 176, 0.875);
+            transform: scale(1.1);
+        }
+        .movie img{
+            width: 225px;
+            height: 250px;
+        }
+        .movie p{
+            color: white;
+            font-size: 20px;
+            padding: 5px;
+        }
+    </style>
+    <div id="newMovies">
+        <div>
+            <h2>New Movies</h2>
+            <p><a href="./1movie.html">See More</a></p>
+        </div>
+        
+        <div class="movie">
+            <a href="./bigil.html"><img src="./MEDIA/image/m-1.jpg" alt=""><p>Bigil</p></a>
+            <a href="./goat.html"><img src="./MEDIA/image/m-10.jpg" alt=""><p>GOAT</p></a>
+            <a href="./mersal.html"><img src="./MEDIA/image/m-11.jpg" alt=""><p>Mersal</p></a>
+            <a href="./imaikan.html"><img src="./MEDIA/image/m-12.jpg" alt=""><p>Imaika Nodigal</p></a>
+            <a href="./pathu.html"><img src="./MEDIA/image/m-13.jpg" alt=""><p>Pathu Thala</p></a>
+            
+        </div>
+    </div>
+
+    <div id="top10">
+        <div>
+            <h2>Top 10 in India</h2>
+            <p><a href="./2movie.html">See More</a></p>
+        </div>
+        <div class="movie">
+            <a href="./raayan.html"><img src="./MEDIA/image/m-15.jpg" alt=""><p>Raayan</p></a>
+            <a href="./ok.html"><img src="./MEDIA/image/m-2.jpg" alt=""><p>Ok Kanmani</p></a>
+            <a href="./96.html"><img src="./MEDIA/image/m-3.jpg" alt=""><p>96</p></a>
+            <a href="./soppana.html"><img src="./MEDIA/image/m-4.jpg" alt=""><p>Soppana Sundari</p></a>
+            <a href="./thug.html"><img src="./MEDIA/image/m-5.jpg" alt=""><p>Thug Life</p></a>
+            <!-- <a href="./anbe.html"><img src="./MEDIA/image/m-6.jpg" alt=""><p>Anbe Sivam</p></a> -->
+        </div>
+    </div>
+
+    <div id="action">
+        <div>
+            <h2>Action Movies</h2>
+            <p><a href="./4movie.html">See More</a></p>
+        </div>
+        <div class="movie">
+            <a href="./michael.html"><img src="./MEDIA/image/m-action1.jpg" alt=""><p>Michael</p></a>
+            <a href="./vikram.html"><img src="./MEDIA/image/m-action2.jpg" alt=""><p>Vikram</p></a>
+            <a href="./sadhuram.html"><img src="./MEDIA/image/m-action3.jpg" alt=""><p>Sadhuram 2</p></a>
+            <a href="./action.html"><img src="./MEDIA/image/m-action4.jpg" alt=""><p>Action</p></a>
+            <a href="./j.html"><img src="./MEDIA/image/m-action5.jpg" alt=""><p>J Baby</p></a>
+            <!-- <a href="./thangalam.html"><img src="./MEDIA/image/m-action6.jpg" alt=""><p>Thangalam</p></a> -->
+        </div>
+    </div>
+
+    <div id="comedy">
+        <div>
+            <h2>Comedy Movies</h2>
+            <p><a href="./5movie.html">See More</a></p>
+        </div>
+        
+        <div class="movie">
+            <a href="./i.html"><img src="./MEDIA/image/m-7.jpg" alt=""><p>I</p></a>
+            <a href="./hero.html"><img src="./MEDIA/image/m-8.jpg" alt=""><p>Hero</p></a>
+            <a href="./teddy.html"><img src="./MEDIA/image/m-9.jpg" alt=""><p>Teddy</p></a>
+            <a href="./goat.html"><img src="./MEDIA/image/m-10.jpg" alt=""><p>GOAT</p></a>
+            <a href="./mersal.html"><img src="./MEDIA/image/m-11.jpg" alt=""><p>Mersal</p></a>
+            <!-- <a href="./imaikan.html"><img src="./MEDIA/image/m-12.jpg" alt=""><p>Imaikan Nodigal</p></a> -->
+        </div>
+    </div>
+
+    <div id="popular">
+        <div>
+            <h2>Popular Movies</h2>
+            <p><a href="./3movie.html">See More</a></p>
+        </div>
+        <div class="movie">
+            <a href="./kukku.html"><img src="./MEDIA/image/m-p1.jpg" alt=""><p>Kukku</p></a>
+            <a href="./raghu.html"><img src="./MEDIA/image/m-p2.jpg" alt=""><p>Raghu Thatha</p></a>
+            <a href="./brother.html"><img src="./MEDIA/image/m-p3.jpg" alt=""><p>Brother</p></a>
+            <a href="./amuthu.html"><img src="./MEDIA/image/m-p4.jpg" alt=""><p>Amutha</p></a>
+            <a href="./lubber.html"><img src="./MEDIA/image/m-p5.jpg" alt=""><p>Lubber Bundhu</p></a>
+            <!-- <a href="./black.html"><img src="./MEDIA/image/m-p6.jpg" alt=""><p>black</p></a> -->
+        </div>
+    </div>
+
+    <style>
+        .company{
+            margin: 200px 0 100px 240px;
+            text-decoration: none;
+        }
+        .company div a{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+        .company div a:hover{
+            color: greenyellow;
+        }
+        .company div{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .company div p{
+            display: inline;
+            margin-right: 10px;
+
+        }
+    </style>
+    <div class="company">
+        <div>
+            <a href="./about.html">About Us</a>
+            <a href="tel:00"><p>Questions?</p>000 000 000 000</a>
+        </div>
+        <div style="gap: 0;">
+            <a href="#">&copy; 2024 STAR. All Rights Reserved.</a>
+            <a href="#">Terms of Use</a>
+        </div>
+    </div>
+
+
+        <script>
+            let slideposition=0;
+            let sliders=document.querySelectorAll('.poster-item');
+            let totalSlider=sliders.length;
+            console.log(totalSlider)
+            const btnPrev=document.querySelector('#prev')
+            const btnNext=document.querySelector('#next')
+
+            btnNext.addEventListener('click',function(){
+                PrevSlide();
+            });
+
+            btnPrev.addEventListener('click',function(){
+                NextSlide();
+            });
+
+            function updatePosition(){
+                sliders.forEach(slide=>{
+                    slide.classList.remove('active');
+                    slide.classList.add('hidden');
+                });
+
+                sliders[slideposition].classList.add('active');
+            }
+
+            function PrevSlide(){
+                if (slideposition==0){
+                    slideposition=totalSlider-1;
+                }
+                else{
+                    slideposition--;
+                } 
+                updatePosition();
+            }
+            function NextSlide(){
+                if (slideposition==totalSlider-1){
+                    slideposition=0;
+                }
+                else{
+                    slideposition++;
+                }
+                updatePosition();
+            }
+
+            setInterval(()=>{
+                if(slideposition==totalSlider-1){
+                    slideposition=0
+                }else{
+                    slideposition++;
+                }
+                updatePosition();
+            },2000)
+
+            function language(){
+                var choise=document.getElementById('lan').value;
+                if (choise=='Tamil'){
+                    window.location.href="movie.html"
+                }else if (choise=='Malayalam'){
+                    window.location.href="malu.html"
+                }
+                else if (choise=='Telugu') {
+                    window.location.href="telugu.html"
+                }
+            }
+        </script>
+
+
+    
+    
+
+</body>
+</html>

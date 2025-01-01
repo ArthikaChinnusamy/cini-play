@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/*font-family: "Roboto", sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/*font-family: "Poppins", sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/*font-family: "Lora", serif; sharp edges*/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(19, 18, 36);
+    color: white;
+    font-family: "Lora", serif; 
+}
+.background{
+    width: 100vw;
+    height: 100vh;
+    background-size:contain ;
+    background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7)),url(../HTML/MEDIA/image/background\ image.jpg);
+}
+.home{
+    background-color: transparent;
+}
+.home img{
+    background-color: transparent;
+    width: 110px;
+    margin-left: 40px;
+}
+.home>p{
+    background-color: transparent;
+    font-size: 40px;
+    font-family: "Roboto", sans-serif;
+    padding-left: 10px;
+}
+/* content in home page */
+.choose{
+    display: flex;
+    margin-top: 100px;
+    justify-content: space-around;
+    background-color: transparent;
+}
+.choose a img{
+    width:400px;
+    height: 300px;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+.choose a{
+    background-color: transparent;
+}
+.choose p{
+    background-color: transparent;
+}
+.m{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.m p:hover{
+    cursor: pointer;
+    color: rgb(18, 221, 110);
+}
+.m a{
+    text-decoration: none;
+}
+.company{
+    width: 100vh;
+    height: 70px;
+    margin: 100px 0 0 100px;
+    display: flex;
+    gap: 100px;
+    font-size: 20px;
+}
+.company p{
+    margin-bottom: 30px ;
+    
+}
+div:empty{
+    border-bottom: red;
+    width: 200px;
+    height: 2px;
+}
+
