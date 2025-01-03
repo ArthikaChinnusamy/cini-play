@@ -18,9 +18,63 @@
     justify-content: center;
     align-items: center;
 }
+@media (max-width: 500px) {
+    .container{
+        padding: 25px 0;
+    }
+    .container .login{
+        width: 280px;
+    }
+    .login p{
+        font-size: 14px;
+    }
+    .login input{
+        width: 220px;
+        padding: 10px;
+        margin-top: 3px;
+        font-size: 15px;
+    }
+    .container .login button{
+        width: 220px;
+        font-size: 14px;
+    }
+    .login label{
+        font-size: 15px;
+    }
+    .container .forgot{
+        width: 300px;
+        height: 350px;
+    }
+    .container .forgot p{
+        padding-top:5px ;
+        font-size: 14px;
+    }
+    .container .forgot button{
+        width: 250px;
+        margin-top: 10px;
+        font-size: 13px;
+    }
+    .container .forgot a{
+        width: 250px;
+    }
+    .container .forgot input{
+        width: 250px;
+    }
+    .container .forgot h1{
+        font-size: 20px;
+    }
+    .container .otp a{
+        width: 250px;
+    }
+    .container .signupbox a{
+        width: 230px
+    }
+}
+
+
 .login{
     width: 455px;
-    height: 470px;
+    height: 500px;
     box-shadow:0 0 5px 6px rgba(107, 106, 106, 0.8); 
     padding: 10px 10px 0 30px;           
 }
@@ -63,6 +117,7 @@ button:hover{
 input::placeholder{
     color: rgb(193, 210, 224);
 }
+
 
 /*background image and logo*/
 .background{
@@ -112,7 +167,8 @@ input::placeholder{
 }
 .forgot a{
     display: block;
-    width: 350px;
+    /* width: 350px; */
+    width: 410px;
     margin-top: 18px;
     height: 40px;
     border-radius: 25px;
@@ -132,6 +188,9 @@ input::placeholder{
     text-align: center;
     margin-bottom: 20px;
 }
+/* .container .otp a{
+    width: 410px
+} */
 /* sign up*/
 
 .signupbox{
@@ -165,6 +224,9 @@ input::placeholder{
 .signupbox > a:hover{
     color: white;
     box-shadow: 0 0 15px rgb(54, 236, 8);
+}
+.container .signupbox a{
+    width: 380px
 }
 
 

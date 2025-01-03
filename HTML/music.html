@@ -84,6 +84,7 @@
         }
         :is(#actor,#director,#playback,#album,#popular) div{
             display: flex;
+            /* width: 100%; */
             justify-content: space-between;
         }
         :is(#actor,#director,#playback,#album,#popular) div  p a{
@@ -126,6 +127,24 @@
             color: white;
             font-size: 20px;
             padding: 5px;
+        }
+
+        @media (max-width: 500px){
+            .side-item i{
+                display: none;
+            }
+            .side-item{
+                width: 230px;
+            }
+            #actor,#director,#playback,#album,#popular{
+                margin-left: 230px;
+            }
+            :is(#actor,#director,#playback,#album,#popular) h2 {
+                font-size: 20px;
+            }
+            .company{
+                width: 100%;
+            }
         }
     </style>
     <div class="con">

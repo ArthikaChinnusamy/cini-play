@@ -64,8 +64,23 @@
 .m a{
     text-decoration: none;
 }
+@media (max-width: 500px){
+    .choose{
+        /* gap: 10px; */
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: space-around; */
+    }
+    .m{
+        display: none;
+    }
+    .choose a img{
+        width:300px;
+        height: 200px;
+    }
+}
 .company{
-    width: 100vh;
+    /* width: 100vh; */
     height: 70px;
     margin: 100px 0 0 100px;
     display: flex;
